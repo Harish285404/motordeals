@@ -1,0 +1,108 @@
+@extends('Admin.layouts.main')
+
+
+
+
+
+@section('content')
+<main class="main2">
+ <p>
+        Pages / Categories /Add Category
+    </p>
+    <h1>
+
+                    Add Category
+
+                </h1>
+
+    </main>
+
+
+
+ <main class="content-main-block">
+
+        @if(Session::has('message'))
+
+          <p class="alert alert-info">{{ Session::get('message') }}</p>
+
+        @endif
+
+   
+
+   
+
+        <form  action="{{ url('admin/add-category-data') }}" method="Post" enctype="multipart/form-data" class=" add-category-feild-form account-form-detail" id="addnews">
+
+            @csrf
+
+            <div class="profile-flex-box">
+
+                <div class="user_image-block">
+
+                    <div class="file-upload">
+
+                      <div class="image-upload-wrap">
+
+                       <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="image" id="image"/>
+
+                        <div class="drag-text">
+
+                  
+
+                                 <img src="{{asset('User-images/Rectangle 237.png')}}">
+
+                        </div>
+
+                      </div>
+
+                      <div class="file-upload-content">
+
+                        <img class="file-upload-image" src="#" alt="your image" />
+
+                      </div>
+
+                      <div class="upload-img">
+
+                        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Choose Image</button>
+
+                      </div>
+
+                    </div>
+
+                </div>
+
+                <div class="user_details_main">
+
+                  <div class="user_details">
+
+                      <div class="col">
+
+                        <div class="col-flex">
+
+                        <input type="text" id="title" name="category" placeholder="Name of Category">
+
+                        </div>
+
+                      </div>
+
+                    
+
+                       <div class="account-dlt-btn account-save-btn">
+
+                        <button type="submit" class="btn">Save</button>
+
+                      </div>         
+
+                  </div>
+
+                </div>
+
+              </div>
+
+       </form>
+
+  </main>
+
+
+
+@endsection
